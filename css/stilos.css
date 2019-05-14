@@ -1,6 +1,51 @@
+@import url("https://fonts.googleapis.com/css?family=Akronim");
+@import url("https://fonts.googleapis.com/css?family=Lato");
 body {
-  color: #23425646;
-  font-family: "Courier New", Courier, monospace;
+  background-color: #449AF5;
+}
+
+#cabecera {
+  display: flex;
+  justify-content: center;
+}
+#cabecera h1 {
+  font-family: "Lato";
+  color: white;
+  font-size: 4em;
+  margin-top: 0.1em;
+}
+
+#galeria {
+  background-color: white;
+  display: flex;
+  flex-flow: row wrap;
+  width: 80vw;
+  justify-content: center;
+}
+#galeria div {
+  display: flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+}
+#galeria div img {
+  width: 14em;
+  height: 17em;
+  margin: 0.2em 0.2em 0.2em 0.2em;
+}
+#galeria div p {
+  display: inline;
+  font-family: "Lato";
+  max-width: 14em;
+  margin: 1em 1em 0em 1em;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  margin: 1em 1em 1em 1em;
 }
 
 /*# sourceMappingURL=stilos.css.map */
