@@ -18,13 +18,14 @@
                  poster_path: imagen,
                  title: titulo,
                  vote_average: puntuacion,
-                 release_date: year
+                 release_date: year,
+                 overview: descripcion
              } = pelicula;
 
              let divPelicula = document.createElement('div');
 
              function estrellas(p) {
-                  let numero ='';
+                 let numero = '';
                  for (let i = 0; i <= puntuacion / 2; i++) {
                      numero += '<i class="fas fa-star"></i>';
                  }
@@ -32,14 +33,21 @@
              }
              let numeroEstrellas = estrellas(puntuacion);
              console.log(numeroEstrellas);
+             let rotulo = ''
+             if (titulo.length > 30) {
+                 rotulo = 'h6';
+             } else {
+                 rotulo = 'h3';
 
+             }
+             console.log(rotulo.fontsize)
 
-             divPelicula.innerHTML = `<img src=${RUTA}${imagen}>
-                                        <h4>${titulo}</h4> 
+             divPelicula.innerHTML = `<img title="${descripcion}" src="${RUTA}${imagen}">
+                                        <${rotulo}>${titulo}</${rotulo}> 
                                         <div>${numeroEstrellas}</div>
-                                         <p id=fecha> ${year} </p>`
+                                         <p id="fecha"> ${year} </p>`
 
-             console.log(divPelicula);                            
+             console.log(divPelicula);
 
              galeria.appendChild(divPelicula);
          }
