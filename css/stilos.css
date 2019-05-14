@@ -33,10 +33,12 @@ body {
   margin: 0.2em 0.2em 0.2em 0.2em;
 }
 #galeria div p {
-  display: inline;
   font-family: "Lato";
   max-width: 14em;
   margin: 1em 1em 0em 1em;
+}
+#galeria div h4 {
+  max-width: 10em;
 }
 
 section {
@@ -46,6 +48,15 @@ section {
 
 img {
   margin: 1em 1em 1em 1em;
+}
+
+.moduloBusqueda {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3em;
+}
+.moduloBusqueda button {
+  margin-left: 4em;
 }
 
 /*# sourceMappingURL=stilos.css.map */

@@ -37,12 +37,17 @@ h1 {
             height: 17em;
             margin: 0.2em 0.2em 0.2em 0.2em;
         }
-        p{
-            display: inline;
+        p {
+            
             font-family: $fuente;
             max-width: 14em;
             margin: 1em 1em 0em 1em;
         }
+        h4 {
+            max-width: 10em;
+        }
+        
+        
     }
 }
 section {
@@ -53,4 +58,17 @@ section {
 
 img {
     margin : 1em 1em 1em 1em ;
+}
+
+.moduloBusqueda{
+    
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3em;
+     
+     button {
+
+        margin-left: 4em;
+     }
+
 }

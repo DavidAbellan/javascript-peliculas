@@ -2,37 +2,55 @@
 
 
 
-window.addEventListener('load',() => { 
+ window.addEventListener('load', () => {
      console.log('document loaded')
-     let cabecera = document.querySelector( '#cabecera' );
+     let cabecera = document.querySelector('#cabecera');
      cabecera.innerHTML = '<h1>Movies Bazar </h1>';
      let galeria = document.querySelector('#galeria');
 
-    const RUTA = 'http://image.tmdb.org/t/p/w185/';
-        
-      for (let pelicula of peliculas){
-        let {poster_path:imagen,title:titulo,vote_average:puntuacion,release_date:year}= pelicula;
-        console.log(pelicula);
-        console.log(titulo, year)
-        let divPelicula = document.createElement('div');
+     const RUTA = 'http://image.tmdb.org/t/p/w185/';
+     imprimir(peliculas);
 
-         divPelicula.innerHTML =  `<img src=${RUTA}${imagen}>
-                                   <p>${titulo}</p> 
+     function imprimir(peliculas) {
+         document.querySelector('#galeria').innerHTML = '';
+         for (let pelicula of peliculas) {
+             let {
+                 poster_path: imagen,
+                 title: titulo,
+                 vote_average: puntuacion,
+                 release_date: year
+             } = pelicula;
+
+             let divPelicula = document.createElement('div');
+
+             divPelicula.innerHTML = `<img src=${RUTA}${imagen}>
+                                   <h4>${titulo}</h4> 
                                    <p>${puntuacion}</p>
                                    <p>${year}</p>`
-        galeria.appendChild(divPelicula);
-
+             galeria.appendChild(divPelicula);
          }
-     
 
-     
-     
-     
+     }
+     let botonBuscar = document.querySelector('#btnBuscar');
+     botonBuscar.addEventListener('click', buscar)
 
-     
+
+     function buscar() {
+         let cajaTexto = document.querySelector('#busqueda');
+         let busqueda = cajaTexto.value;
+         busqueda = busqueda.toLowerCase();
+
+         let peliculasEncontradas = peliculas.filter(a => {
+             return a.title.toLowerCase().includes(busqueda)
+         })
+         imprimir(peliculasEncontradas);
+     }
+
+     // 
+
+
+
+
+
 
  });
- 
-
-
-
