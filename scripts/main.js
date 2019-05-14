@@ -23,10 +23,24 @@
 
              let divPelicula = document.createElement('div');
 
+             function estrellas(p) {
+                  let numero ='';
+                 for (let i = 0; i <= puntuacion / 2; i++) {
+                     numero += '<i class="fas fa-star"></i>';
+                 }
+                 return numero;
+             }
+             let numeroEstrellas = estrellas(puntuacion);
+             console.log(numeroEstrellas);
+
+
              divPelicula.innerHTML = `<img src=${RUTA}${imagen}>
-                                   <h4>${titulo}</h4> 
-                                   <p>${puntuacion}</p>
-                                   <p>${year}</p>`
+                                        <h4>${titulo}</h4> 
+                                        <div>${numeroEstrellas}</div>
+                                         <p id=fecha> ${year} </p>`
+
+             console.log(divPelicula);                            
+
              galeria.appendChild(divPelicula);
          }
 

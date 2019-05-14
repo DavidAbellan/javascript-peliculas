@@ -26,11 +26,13 @@ body {
   display: flex;
   justify-content: center;
   flex-flow: column nowrap;
+  margin: 0.5em 0.5em 0.5em 0.5em;
 }
 #galeria div img {
   width: 14em;
   height: 17em;
   margin: 0.2em 0.2em 0.2em 0.2em;
+  border-radius: 10%;
 }
 #galeria div p {
   font-family: "Lato";
@@ -39,6 +41,10 @@ body {
 }
 #galeria div h4 {
   max-width: 10em;
+}
+#galeria div div {
+  display: inline;
+  margin: 0.1em;
 }
 
 section {
@@ -57,6 +63,10 @@ img {
 }
 .moduloBusqueda button {
   margin-left: 4em;
+}
+
+#fecha {
+  font-size: 6pt;
 }
 
 /*# sourceMappingURL=stilos.css.map */
