@@ -15,6 +15,7 @@
          document.querySelector('#galeria').innerHTML = '';
          for (let pelicula of peliculas) {
              let {
+                 id : identificador,
                  poster_path: imagen,
                  title: titulo,
                  vote_average: puntuacion,
@@ -42,10 +43,13 @@
              }
              console.log(rotulo.fontsize)
 
-             divPelicula.innerHTML = `<img title="${descripcion}" src="${RUTA}${imagen}">
-                                        <${rotulo}>${titulo}</${rotulo}> 
-                                        <div>${numeroEstrellas}</div>
-                                         <p id="fecha"> ${year} </p>`
+             divPelicula.innerHTML = `   
+                                         <a href="/detalles.html?IDpelicula=${identificador}">
+                                         <img title="${descripcion}" src="${RUTA}${imagen}">
+                                         </a>
+                                          <${rotulo}>${titulo}</${rotulo}> 
+                                         <div>${numeroEstrellas}</div>
+                                         <p id="fecha"> ${year} </p> `
 
              console.log(divPelicula);
 
