@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css?family=Akronim");
 @import url("https://fonts.googleapis.com/css?family=Lato");
+* {
+  font-family: "Lato";
+}
+
 body {
   background-color: #449AF5;
 }
@@ -83,6 +87,12 @@ h6 {
 #contenedor div div {
   display: flex;
   flex-direction: column;
+  background-color: white;
+}
+#contenedor div div h1 {
+  font-size: 6em;
+  margin-top: 0%;
+  text-align: center;
 }
 #contenedor img {
   width: 60em;
@@ -93,6 +103,7 @@ h6 {
 }
 #contenedor p {
   width: 30em;
+  margin: 0 1em 1em 1em;
 }
 #contenedor #fecha {
   left: 10em;
