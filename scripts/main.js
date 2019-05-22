@@ -20,6 +20,9 @@
  window.addEventListener('load', load)
 
  async function load() {
+  
+
+
     cabecera.innerHTML = '<h1>Movies Bazar </h1>';
      let result = await axios.get(API_URL + API_POPULAR_URL + API_KEY)
      peliculas = result.data.results
@@ -45,6 +48,14 @@
 
 
  }
+
+
+    
+
+      
+    
+
+ 
 
  function ordenarPorNombre() {
 
@@ -93,7 +104,26 @@
              release_date: year,
              overview: descripcion
          } = pelicula;
+        
+    let corazon = ''
+    
+    if (localStorage.getItem('array') !== null){
+      let ident = JSON.parse(localStorage.getItem('array'))
+        for (let campo of ident){
+       if (campo == identificador){
+           corazon ='<i class="fas fa-heart" id="meGusta" style="margin-left:3em;position:absolute;color:red;transform:scale(5);"></i>'
+       } }
 
+    }
+/*      
+ */       
+             /* let id = JSON.parse(localStorage)
+             console.log(id);  */
+             /*  if (localStorage.getItem(titulo)== id){
+                corazon =  }} */
+ 
+        
+        
          let divPelicula = document.createElement('div');
 
          function estrellas(p) {
@@ -116,10 +146,12 @@
          divPelicula.innerHTML = `   
                                          <a href="/detalles.html?IDpelicula=${identificador}">
                                          <img title="${descripcion}" src="${RUTA}${imagen}">
+                                        
                                          </a>
+                                         ${corazon}
                                           <${rotulo}>${titulo}</${rotulo}> 
                                          <div>${numeroEstrellas}</div>
-                                         <p id="fecha"> ${year} </p> `
+                                          <p id="fecha"> ${year} </p> `
 
 
 
@@ -135,5 +167,5 @@
      let peliculasEncontradas = peliculas.filter(a => {
          return a.title.toLowerCase().includes(busqueda)
      })
-     imprimir(peliculasEncontradas);
- }
+     imprimir(peliculasEncontradas);}
+ 

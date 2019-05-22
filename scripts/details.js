@@ -1,32 +1,142 @@
 /* import peliculas from './films.js' */
-
 window.addEventListener('load', load);
 
 const RUTA = 'http://image.tmdb.org/t/p/w185/'
 const API_URL = "https://api.themoviedb.org/3/"
 const API_KEY = "?api_key=80a1695fec74ccf4bb37c6b5c03ab6ee"
 const API_POPULAR_URL = 'movie/popular'
+let idpelicula;
+let pelicula ;
+
+
+function gustar() {
+  let arrayF=JSON.parse(localStorage.getItem('array')) 
+  
+ if (localStorage.getItem('array') == null){
+   arrayF=[]
+  arrayF.push(idpelicula)
+ localStorage.setItem('array',JSON.stringify(arrayF))
+ 
+  }
+  else {
+  
+     if (arrayF.find(a => idpelicula == a)){
+      let pos = arrayF.indexOf(idpelicula);
+      arrayF.splice(pos ,1)
+      localStorage.setItem('array',JSON.stringify(arrayF))
+       
+      
+      } else {
+      arrayF.push(idpelicula);
+      localStorage.setItem('array',JSON.stringify(arrayF))}
+     
+    }
+
+   load()
+  }
+  
+   /*  let nombre = pelicula.title;
+  console.log(arrayF);
+  if (localStorage != true) {
+
+     arrayF.push(nombre,idpelicula)
+     localStorage.setItem(nombre, idpelicula)
+     
+ } else {
+    
+   /*  console.log(nombre);
+    arrayF = JSON.parse(localStorage.getItem(nombre));
+    console.log(arrayF); 
+    if (arrayF.find(a => idpelicula == a) = false) {
+
+      arrayF.push(nombre, idpelicula);
+      localStorage.setItem(nombre, idpelicula)
+    } else {
+      console.log(localStorage)
+      localStorage.removeItem(nombre)
+
+
+    }
+  }
+
+  load() */
+function meGusta() {
+  if (localStorage.getItem('array') !== null) {
+    let af = [];
+    af = JSON.parse(localStorage.getItem('array'));    
+    console.log(af);
+    if (af.find(a => a===idpelicula)){
+      return true
+    }
+      return false 
+
+  } else {
+    return false;
+  }
+
+}
+
+
+///// tocar esta función me gusta
+/* function meGusta(id) {
+  
+  {
+  
+   console.log(af);
+
+  ///// identidad es el indice
+  if (af.find(a => id == a.id)){
+    let pos = af.indexOf(idpelicula);
+    af.splice(pos ,1)
+    localStorage.setItem('array',JSON.stringify(af))
+    return false
+     } else {
+    af.push(id);
+    localStorage.setItem('array',JSON.stringify(af))
+   return true
+  }
+}else {return false}}  */
 
 async function load() {
+
+  
   let url = new URL(window.location.href);
-  let idpelicula = url.searchParams.get('IDpelicula').valueOf();
-   const RESULT = await axios.get(API_URL + API_POPULAR_URL + API_KEY)
+  idpelicula = url.searchParams.get('IDpelicula').valueOf();
+
+  const RESULT = await axios.get(API_URL + API_POPULAR_URL + API_KEY)
   let peliculas = RESULT.data.results
- 
-  let pelicula = peliculas.find(a => idpelicula == a.id);
+  pelicula = peliculas.find(a => idpelicula == a.id);
+
+   console.log(pelicula);
+  let grafico;
+
+  if (meGusta()) {
+
+    grafico = '<i class="fas fa-heart" id="meGusta"></i>'
+  } else {
+    grafico = '<i class="far fa-heart" id="meGusta"></i>'
+  }
+
+
+
   let divPelicula = document.querySelector('#contenedor');
+  divPelicula.innerHTML = '';
   let containerinfo = document.createElement('div');
+
   containerinfo.innerHTML = `<img src="${RUTA}${pelicula.poster_path}"/> 
                                <div>
                               <h1>${pelicula.original_title}</h1 >
                               <p> ${pelicula.overview}</p> 
-                               </div>
-                               <div>
+                               </div> <div>
+                              
                               <h2> Valoración : ${pelicula.vote_average}</h2>
-                             <p id="fecha"> Fecha de Lanzamiento : ${pelicula.release_date}</p>
+                              <p id="fecha"> Fecha de Lanzamiento : ${pelicula.release_date}</p>
+                              ${grafico}
                                </div>`
 
   divPelicula.appendChild(containerinfo);
+  document.querySelector("#meGusta").addEventListener('click', gustar);
+
 
 
 }
