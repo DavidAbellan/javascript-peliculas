@@ -115,12 +115,8 @@
        } }
 
     }
-/*      
- */       
-             /* let id = JSON.parse(localStorage)
-             console.log(id);  */
-             /*  if (localStorage.getItem(titulo)== id){
-                corazon =  }} */
+
+
  
         
         

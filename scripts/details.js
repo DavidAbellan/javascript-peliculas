@@ -35,31 +35,7 @@ function gustar() {
    load()
   }
   
-   /*  let nombre = pelicula.title;
-  console.log(arrayF);
-  if (localStorage != true) {
-
-     arrayF.push(nombre,idpelicula)
-     localStorage.setItem(nombre, idpelicula)
-     
- } else {
-    
-   /*  console.log(nombre);
-    arrayF = JSON.parse(localStorage.getItem(nombre));
-    console.log(arrayF); 
-    if (arrayF.find(a => idpelicula == a) = false) {
-
-      arrayF.push(nombre, idpelicula);
-      localStorage.setItem(nombre, idpelicula)
-    } else {
-      console.log(localStorage)
-      localStorage.removeItem(nombre)
-
-
-    }
-  }
-
-  load() */
+  
 function meGusta() {
   if (localStorage.getItem('array') !== null) {
     let af = [];
@@ -77,25 +53,7 @@ function meGusta() {
 }
 
 
-///// tocar esta función me gusta
-/* function meGusta(id) {
-  
-  {
-  
-   console.log(af);
 
-  ///// identidad es el indice
-  if (af.find(a => id == a.id)){
-    let pos = af.indexOf(idpelicula);
-    af.splice(pos ,1)
-    localStorage.setItem('array',JSON.stringify(af))
-    return false
-     } else {
-    af.push(id);
-    localStorage.setItem('array',JSON.stringify(af))
-   return true
-  }
-}else {return false}}  */
 
 async function load() {
 
